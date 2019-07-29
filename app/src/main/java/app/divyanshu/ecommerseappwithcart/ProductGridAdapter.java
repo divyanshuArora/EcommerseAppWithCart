@@ -35,6 +35,12 @@ public class ProductGridAdapter extends RecyclerView.Adapter<ProductGridAdapter.
         this.type = i;
     }
 
+    public void updateList(List<ProductsModel> list){
+        productsModelList = list;
+        notifyDataSetChanged();
+    }
+
+
     @Override
     public int getItemViewType(int position) {
         //return super.getItemViewType(position);
@@ -108,6 +114,10 @@ public class ProductGridAdapter extends RecyclerView.Adapter<ProductGridAdapter.
             });
         }
         }
+
+
+
+
     @Override
     public int getItemCount() {
         return productsModelList.size();

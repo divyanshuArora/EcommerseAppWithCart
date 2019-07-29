@@ -10,9 +10,13 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.SearchView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,13 +31,13 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ImageBadgeView cartIcon;
     Sqlite_Database sqlite_database;
-
+    EditText searchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        searchView = findViewById(R.id.searchView);
         recyclerView =findViewById(R.id.recycler);
         cartIcon = findViewById(R.id.cartIcon);
 
@@ -44,12 +48,55 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(cart);
             }
         });
+
+
+
+
+        searchView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable)
+            {
+                filter(editable.toString());
+
+
+            }
+        });
+
+
+
+
         loadCount();
         loadData();
 
     }
 
-   public  void loadCount()
+    private void filter(String searchText)
+    {
+
+        List<ProductsModel> temp = new ArrayList<>();
+        for (ProductsModel pro : productsModelList)
+        {
+            if (pro.getProductName().toLowerCase().trim().contains(searchText.toLowerCase().trim()))
+            {
+                temp.add(pro);
+            }
+            productGridAdapter.updateList(temp);
+        }
+
+
+    }
+
+    public  void loadCount()
     {
 
         sqlite_database = new Sqlite_Database(MainActivity.this);
