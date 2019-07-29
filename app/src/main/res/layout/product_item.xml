@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="15dp"
+    android:padding="10dp"
+    android:background="@drawable/rectangle"
+    android:orientation="vertical"
+    >
+
+
+    <ImageView
+        android:layout_width="160dp"
+        android:layout_height="180dp"
+        android:id="@+id/productImage"
+        android:src="@drawable/watch"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f0f0f0"
+        android:layout_marginTop="5dp"
+        />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Item Name"
+        android:id="@+id/productName"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:textSize="12sp"
+        android:textAllCaps="true"
+        android:textColor="#E70C0C"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f0f0f0"
+        android:layout_marginTop="5dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:layout_marginTop="5dp"
+        >
+
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            android:id="@+id/productAmt"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="bottom|center"
+            android:text="500/-"
+            android:textColor="#E70C0C"
+            android:textSize="15sp"
+            android:typeface="serif"
+            />
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:id="@+id/addToCart"
+        android:layout_weight="0.6"
+        android:text="Add To Cart"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        android:typeface="serif"
+        android:textSize="12sp"
+        />
+    </LinearLayout>
+
+
+    </LinearLayout>
+
+
